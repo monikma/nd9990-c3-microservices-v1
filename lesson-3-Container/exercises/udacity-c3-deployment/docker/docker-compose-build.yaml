@@ -1,0 +1,18 @@
+version: "3"
+services:
+  reverseproxy:
+    build:
+      context: .
+    image: monikma/udacity-c3-reverseproxy
+  backend_user:
+    build:
+      context: ../../udacity-c3-restapi-user
+    image: monikma/udacity-c3-user
+  backend_feed:
+    build:
+      context: ../../udacity-c3-restapi-feed
+    image: monikma/udacity-c3-feed
+  frontend:
+    build:
+      context: ../../udacity-c3-frontend
+    image: monikma/udacity-c3-frontend:local
