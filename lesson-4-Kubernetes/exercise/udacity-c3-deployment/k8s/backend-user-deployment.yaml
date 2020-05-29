@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: user
+  name: user
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        service: user
+    spec:
+      containers:
+        - image: monikma/udacity-restapi-user
+          name: user
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
